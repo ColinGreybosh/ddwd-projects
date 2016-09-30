@@ -1,0 +1,35 @@
+html {
+    font-size: 110%;
+}
+
+.radar {
+    width: 100%;
+    height: auto;
+}
+
+.flexContainer {
+    display:-webkit-flex;
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.flexBox {
+    justify-content: center;
+    width: 49%;
+    height: auto;
+    margin: 0.25%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+}
+
+@media screen and (max-width: 650px) {
+    .flexContainer {
+    display: block;
+    }
+
+    .flexBox {
+        height: auto;
+        width: 100%;
+    }
+}

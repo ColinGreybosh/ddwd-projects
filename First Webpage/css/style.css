@@ -1,0 +1,227 @@
+/* In order to use REM as a font size, margin, etc.
+you must define a percentage to scale from. */
+html {
+    font-size: 110%;
+}
+/* This tag changes the font face, size, and color of all text.
+It also sets the color of the background to black. */
+body {
+    font-family: "Roboto Slab", serif;
+    font-size: 1.2rem;
+    background-color: #000000;
+    color: #FF0000;
+}
+/* This tag changes the font face and centers h1 text */
+body h1 {
+    font-family: "Metal Mania", serif;
+    text-align: center;
+}
+/*  This tag centers all h3 tags in the body  */
+h3 {
+    text-align: center;
+}
+/* This tag adds a 0.5REM margin to unordered lists */
+ul {
+    margin-top: 0.5rem;
+    list-style-type: circle;
+}
+
+ul ul {
+    margin-right: -0.2rem;
+    list-style-type: dash;
+}
+/* This tag changes the font size of all strong tags to 1.4 REM */
+strong {
+    font-size: 1.4rem;
+}
+/*  These anchor tags define how hyperlinks look normally,
+when clicked, when hovered over, and when active  */
+a:link {
+    text-decoration: none;                      /* Removes the default hyperlink underline */
+    color: #FF3131;                             /* Changes the color of an unclicked link */
+    text-shadow: .1rem .1rem .1rem #FFFFFF;   /* Adds a white shadow to the text */
+}
+a:visited {
+    text-decoration: none;
+    color: #FF5151;
+    text-shadow: .05rem .05rem .1rem #FFFFFF;
+}
+a:hover {
+    text-decoration: underline;
+    font-style: italic;
+}
+
+a:active {
+    text-decoration: none;
+    color: #FF9999;
+}
+/* Classes are defined with a '.' before the class name.
+The picture here is resized so it can scale up and down according to window size.
+Classes are used to style certain, defined types of elements on a page. */
+.gaben {
+    height: auto;           /* The height automatically scales proportonally to the width of the image. */
+    width: 45%;             /* The width of the image takes up 84% of the screen. */
+    position: absolute;
+    opacity: 0.10;          /* Opacity sets the transparency of the image (0=transparent,1=solid) */
+    z-index: -1;            /* A z-index of -1 moves the image to the back, but in front of the background. */
+    /* VV Centers the image VV */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    /* ^^ Centers the image ^^ */
+}
+
+.metalMania {
+    font-family:'Metal Mania', serif;
+}
+
+.metal {
+    text-shadow: .3rem .3rem .5rem #CC0D00;
+}
+
+.require strong {
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.require ul {
+    margin-left: 1.2rem;
+}
+
+.title {
+    position: relative;
+    display: block;
+    margin: 0 auto;  /* Centers the div (Top+bottom margin=0, left+right margin=auto) */
+}
+
+.title h1 {
+    margin-bottom: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+.title h3 {
+    margin-top: 0.3rem;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.intro {
+    margin: 0.5rem 2rem 0.5rem 2rem;
+    text-align: center;
+}
+.super {
+    vertical-align: super;
+    font-size: 0.7rem;
+}
+
+.italic {
+    font-style: italic;
+    color: #888888;
+}
+
+/* This flex box container makes the 3 column style of my webpage
+responsive with the width of the screen it is viewed on */
+.flexContainer {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.flexBox {
+    width: 30%;
+    height: auto;
+    margin: 0.2rem 2.5%;
+}
+
+.flexBox * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.flexBox h3 {
+    text-align: left;
+}
+
+.flexBox hr {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+hr.hidden {
+    display: none;
+}
+
+/* This CSS code below sets a new style for the
+classes flexContainer and flexBlock when the width
+of the screen is less than 525px. */
+@media screen and (max-width: 540px) {
+    .flexContainer {
+        display: block;
+    }
+
+    .flexBox {
+        width: 100%;
+        height: auto;
+    }
+
+    hr.hidden {
+        display: block;
+    }
+}
+
+.footer {
+    text-align: center;
+    margin-left: 0.7rem;
+    margin-right: 0.7rem;
+    font-family: "Helvetica";
+    font-size: 0.7rem;
+}
+/* IDs are defined with a # before the ID name.
+IDs are used to create a unique styling for a
+specific object on your page like a header, footer, sidebar, etc.  */
+#dootLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#dootLeft img {
+    height: auto;
+    width: 80%;
+}
+/* VV Fixes the image to the top right corner of the screen VV */
+#dootRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#dootRight::after {
+    display: block;
+    width: 100%;
+    clear: both;
+    content: "";
+}
+/* ^^ Fixes the image to the top right corner of the screen ^^ */
+#dootRight img {
+    height: auto;
+    width: 80%;
+    float: right;
+    /* Mirrors the image horizontally */
+    transform: scale(-1, 1);
+    /* Mirrors the image horizontally */
+}
+
+#valveSuper {
+    vertical-align: top;
+    font-size: 0.4rem;
+}

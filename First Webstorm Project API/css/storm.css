@@ -1,0 +1,52 @@
+body {
+    background-image: url("../img/bacontile.png");
+    margin-bottom: 2rem;
+}
+
+/*Incorporate BACON into your webpage. (4 points) - because every set of directions should have a step for BACON!!!*/
+
+.content {
+    background-image: url("../img/bacontile.png");
+    height: 100%;
+}
+
+div.horizontal.hidden {
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+img.radar {
+    display: block;
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.flexContainer {
+    display: -webkit-flex;
+    display: block;
+    height: auto;
+    width: 90%;
+    margin-top: 1rem;
+}
+
+.flexBox {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    align-content: center;
+}
+
+.flexBox p {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+div.hidden {
+    display: block
+}
+
+div.shown {
+    display: none;
+}

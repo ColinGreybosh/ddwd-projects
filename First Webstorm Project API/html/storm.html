@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Storm!</title>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/storm.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+</head>
+<body>
+    <div class="navContainer">
+        <div class="nav">
+            <a href="index.html">
+                <div class="navItem">
+                    <p>HOME</p>
+                </div>
+            </a>
+            <a href="storm.html">
+                <div class="navItem">
+                    <p>STORM!</p>
+                </div>
+            </a>
+            <a href="help.html">
+                <div class="navItem">
+                    <p>HELP!</p>
+                </div>
+            </a>
+        </div>
+        <div class="horizontal"></div>
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <h1>This is a web page made using Web<a href="storm.html">Storm</a>!</h1>
+            <h2>It runs on 32-bit Java and is kinda slow.</h2>
+            <p>Sadly, it isn't my cup of tea... But I'll give it some time.</p>
+            <div class="horizontal"></div>
+        </div>
+
+        <div class="flexContainer">
+            <div class="flexBox">
+                <img src="http://api.wunderground.com/api/4e770eb535baee60/radar/q/PA/Drums.gif?newmaps=1&timelabel=1&timelabel.y=15"
+                     alt="Drums Radar" class="radar"/>
+                <p>
+                    A stationary radar image of Drums, PA. (no additional parameters required).
+                </p>
+            </div>
+            <div class="horizontal hidden"></div>
+            <div class="flexBox">
+                <img src="http://api.wunderground.com/api/4e770eb535baee60/radar/q/FL/Orlando.png?newmaps=1&timelabel=1&timelabel.y=15&width=500&height=500&radius=300&noclutter=1"
+                     alt="Orlando Radar" class="radar"/>
+                <p>
+                    A stationary radar image of Orlando, FL (in png format with a 300 mi radius).
+                </p>
+            </div>
+            <div class="horizontal hidden"></div>
+            <div class="flexBox">
+                <img src="http://api.wunderground.com/api/4e770eb535baee60/animatedradar/q/PA/Hazleton.gif?basemap=1&timelabel=1&timelabel.y=15&num=12&delay=50&width=400&height=400&radius=250&newmaps=1"
+                     alt="Animated Hazleton Radar .gif" class="radar"/>
+                <p>
+                    An animated radar image of Hazleton, PA (in gif format with 400x400 image dimensions and a 250 mi radius).
+                </p>
+            </div>
+            <div class="horizontal hidden"></div>
+            <div class="flexBox">
+                <img src="http://api.wunderground.com/api/4e770eb535baee60/animatedradar/q/PA/Hazleton.gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50"
+                     alt="Animated Hazleton Radar .gif 12 frames" class="radar"/>
+                <p>
+                    An animated radar image of Hazleton, PA (in gif format with 400x400 image dimensions and a 250 mi radius WITH 12 frames in the animation).
+                </p>
+            </div>
+            <div class="horizontal hidden"></div>
+            <div class="flexBox">
+                <img src="http://api.wunderground.com/api/4e770eb535baee60/animatedradar/animatedsatellite/q/PA/Philadelphia.gif?num=6&delay=50&interval=30&width=300&height=300&radius=300&rad.timelabel=1&rad.timelabel.y=15&rad.newmmaps=1"
+                     alt="Animated Radar + Animated Satellite Philadelphia .gif" class="radar"/>
+                <p>
+                    An animated combined radar/satellite image of Philadelphia, PA (in gif format) with 300x300 image dimensions and a 300 mi radius.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

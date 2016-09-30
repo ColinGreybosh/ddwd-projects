@@ -1,0 +1,74 @@
+html {
+    font-size: 110%;
+    height: 100%;
+}
+
+body {
+    background: #CCCCCC;
+    font-family: "Verdana", sans-serif;
+    /*font-family: cursive;*/
+}
+
+.title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 3rem;
+    color: #FF0000;
+    margin-top: 0.75rem;
+    margin-bottom: 0.3rem;
+    text-shadow:
+    -1px -1px 0 #000000,
+    1px -1px #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+}
+
+.title p {
+    font-size: 1.3rem;
+    color: #FFFFFF;
+    margin-top: 0.3rem;
+    text-shadow:
+    -1px -1px 0 #000000,
+    1px -1px #000000,
+    -1px 1px 0 #000000,
+    1px 1px 0 #000000;
+    font-style: italic;
+}
+
+.content {
+    margin: 0 auto;
+}
+
+.content h2 {
+    font-size: 1.6rem;
+    color: #FF0000;
+    text-align: center;
+}
+
+.content  ul {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0;
+}
+
+.content ul li {
+    margin: 1.25rem 2rem ;
+    font-size: 1.2rem;
+}
+
+.footer {
+
+}
+
+.noBullet {
+    list-style-type: none;
+}
+
+.emphatic {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #FF0000;
+}

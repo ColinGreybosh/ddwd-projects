@@ -1,0 +1,169 @@
+html {
+    font-size: 110%;
+    font-family: 'Open Sans', "Segoe UI", sans-serif;
+    height: 100%;
+}
+
+body {
+    background-color: #FFFFFF;
+    position: relative;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #ff4c11;
+}
+
+.navContainer {
+    position: relative;
+    margin: 0;
+    padding: 0.3rem 0 0.3rem 0;
+    width: 100%;
+    background-color: #BBBBBB;
+}
+
+.navContainer .horizontal {
+    position: absolute;
+    margin: 0;
+    bottom: 0;
+}
+
+.content {
+    background-color: #FFFFFF;
+}
+
+.nav {
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 2rem;
+}
+
+.navItem {
+    display: inline-flex;
+    outline: #EEEEEE solid 2px;
+    background-color: #EEEEEE;
+    font-weight: 500;
+}
+
+.navItem:hover {
+    outline: #999999 solid 2px;
+    background-color: #999999;
+    font-weight: bold;
+}
+
+.navItem:active {
+    outline: #DDDDDD solid 2px;
+    background-color: #DDDDDD;
+    font-weight: bolder;
+}
+
+.navItem p {
+    margin: 0 0.2rem 0 0.2rem;
+    padding: 0.2rem;
+    padding-top: 0.1rem;
+}
+
+div.horizontal {
+    color: #000000;
+    background-color: #000000;
+    height: 2px;
+    width: 100%;
+    margin: 0.5rem auto;
+}
+
+div.vertical {
+    color: #000000;
+    background-color: #000000;
+    width: 2px;
+    height: 85%;
+    margin: auto 0.5rem;
+}
+
+.header {
+    color: #ff4c11;
+    background-color: #DDDDDD;
+}
+
+.header h1 {
+    margin: 0 0.2rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+.header h2 {
+    margin: 0.15rem;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.header p {
+    margin: 0.3rem;
+    text-align: center;
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.header .horizontal {
+    margin-bottom: 0.25%;
+}
+
+.flexContainer {
+    display: -webkit-flex;
+    display: flex;
+    height: auto;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.flexBox {
+    height: auto;
+    width: 49%;
+    margin: 0.25%;
+    justify-content: center;
+}
+
+.flexImg {
+    height: auto;
+    width: 100%;
+}
+
+.flexText p {
+    text-align: center;
+    margin: 0rem;
+}
+
+div.hidden {
+    display: none;
+}
+
+div.shown {
+    display: block;
+}
+
+@media screen and (max-width: 900px) {
+    .flexContainer {
+        display: -webkit-flex;
+        display: block;
+        height: auto;
+        width: 90%;
+    }
+
+    .flexBox {
+        height: auto;
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+    }
+
+    div.hidden {
+        display: block
+    }
+
+    div.shown {
+        display: none;
+    }
+}
