@@ -1,0 +1,80 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="blackstar_data" version="1.3.0" audacityversion="2.1.2" sel0="22.1342884031" sel1="22.1342884031" vpos="0" h="13.2953456481" zoom="81.2314345623" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="GENRE" value="Rock"/>
+		<tag name="ARTIST" value="David Bowie"/>
+		<tag name="TRACKNUMBER" value="1/9"/>
+		<tag name="Part of a set" value="1/1"/>
+		<tag name="Composer" value="David Bowie"/>
+		<tag name="TITLE" value="Blackstar"/>
+		<tag name="YEAR" value="2016"/>
+		<tag name="Band" value="David Bowie"/>
+		<tag name="ALBUM" value="Blackstar [Explicit]"/>
+		<tag name="COMMENTS" value="Amazon.com Song ID: 264826561"/>
+	</tags>
+	<wavetrack name="Blackstar" channel="0" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1323000">
+				<waveblock start="0">
+					<simpleblockfile filename="e000084f.au" len="184515" min="-0.996192" max="0.984173" rms="0.186729"/>
+				</waveblock>
+				<waveblock start="184515">
+					<simpleblockfile filename="e0000345.au" len="184515" min="-0.984472" max="0.984224" rms="0.247063"/>
+				</waveblock>
+				<waveblock start="369030">
+					<simpleblockfile filename="e0000e59.au" len="262144" min="-0.992346" max="0.987601" rms="0.242953"/>
+				</waveblock>
+				<waveblock start="631174">
+					<simpleblockfile filename="e000030d.au" len="262144" min="-0.990114" max="0.98837" rms="0.246472"/>
+				</waveblock>
+				<waveblock start="893318">
+					<simpleblockfile filename="e00003fb.au" len="262144" min="-0.985631" max="0.983265" rms="0.25118"/>
+				</waveblock>
+				<waveblock start="1155462">
+					<simpleblockfile filename="e0000121.au" len="167538" min="-0.997185" max="0.99129" rms="0.183779"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="7">
+				<controlpoint t="12.729062407571" val="1.000000000000"/>
+				<controlpoint t="14.464843644967" val="0.760563373566"/>
+				<controlpoint t="16.360661450349" val="1.000000000000"/>
+				<controlpoint t="18.391894813260" val="0.760563373566"/>
+				<controlpoint t="20.287712618642" val="0.992957770824"/>
+				<controlpoint t="22.306635476323" val="0.760563373566"/>
+				<controlpoint t="24.854910058883" val="1.000000000000"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Blackstar" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="0" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="1323000">
+				<waveblock start="0">
+					<simpleblockfile filename="e0000bd0.au" len="184515" min="-0.982349" max="0.955123" rms="0.172865"/>
+				</waveblock>
+				<waveblock start="184515">
+					<simpleblockfile filename="e0000abb.au" len="184515" min="-0.994966" max="0.988235" rms="0.225016"/>
+				</waveblock>
+				<waveblock start="369030">
+					<simpleblockfile filename="e0000791.au" len="262144" min="-0.987925" max="0.994924" rms="0.22637"/>
+				</waveblock>
+				<waveblock start="631174">
+					<simpleblockfile filename="e0000e19.au" len="262144" min="-0.989778" max="1.0" rms="0.264207"/>
+				</waveblock>
+				<waveblock start="893318">
+					<simpleblockfile filename="e000001f.au" len="262144" min="-0.988448" max="0.987709" rms="0.265528"/>
+				</waveblock>
+				<waveblock start="1155462">
+					<simpleblockfile filename="e0000719.au" len="167538" min="-0.991565" max="0.985739" rms="0.197474"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="5">
+				<controlpoint t="14.464843644967" val="1.000000000000"/>
+				<controlpoint t="16.372971955579" val="0.690140843391"/>
+				<controlpoint t="18.404205318489" val="1.000000000000"/>
+				<controlpoint t="22.282014465863" val="1.000000000000"/>
+				<controlpoint t="24.854910058883" val="0.760563373566"/>
+			</envelope>
+		</waveclip>
+	</wavetrack>
+</project>
