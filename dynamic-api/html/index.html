@@ -52,9 +52,9 @@
     <div class="content">
         <div class="flexContainer">
             <div class="flexBox">
-                <div class="codeExample">
+                <div class="codeExample left">
                     <p>
-                    1. Getting input from users using function 'myFunction':
+                    1. Getting input from users using function 'myFunction': <br/>
                     <button onclick="myFunction()">Click This!</button>
                     <p id="demo1"></p>
                         <script>
@@ -64,7 +64,7 @@
                              comment in javascript
                              */
                             function myFunction() { // Declares a function 'myFunction'
-                                var person = prompt("Please enter your name", "");
+                                var person = prompt("Please enter your name", "Colin");
                                 /*  Creates a variable called person which is equal to the response to
                                     the prompt function */
                                 if (person != null) {     /* Changes the text in the <p> tag to the string below
@@ -77,58 +77,40 @@
                     </p>
                 </div>
             </div>
+
             <div class="hr hidden"></div>
+
             <div class="flexBox">
-                <div class="codeExample">
+                <div class="codeExample right">
                     <p>
-                    2. Getting input from users using function 'weekend':
-                    <button onclick="weekend()">Try it</button> <!-- Creates a button that runs function
-                                                                     'weekend' when clicked -->
-                    <p id="demo2"></p>
-                        <script>
-                            function weekend() { // Declares a function called 'weekend'
-                                var person = prompt("Please enter your name", ""); /* Sets the variable person equal
-                                                                                      to the user's response to the
-                                                                                      prompt*/
-                                if (person != null) { // Runs the code within the if statement
-                                    document.getElementById("demo2").innerHTML =
-                                        "Hello " + person + "! How was your weekend?";
-                                }
-                            }
-                        </script>
-                    </p>
-                </div>
-            </div>
-            <div class="hr"></div>
-            <div class="flexBox">
-                <div class="codeExample">
-                    <p>
-                    3. Getting input from users using function 'getLocation':
+                    2. Getting input from users using function 'getLocation': <br/>
                     <button onclick="getLocation()">So cool!</button>
                     <p id="demo3"></p>
                         <script>
                             function getLocation() {
-                                var location = prompt("Please enter your city and state", "");
+                                var location = prompt("Please enter your city and state", "Philadelphia, PA");
                                 if (location != null) {
                                     document.getElementById("demo3").innerHTML =
-                                        "Hello " + person + "! How was your weekend?";
+                                        "I hear that " + location + " is great this time of year!";
                                 }
                             }
                         </script>
                     </p>
                 </div>
             </div>
-            <div class="hr hidden"></div>
+
+            <div class="hr"></div>
+
             <div class="flexBox">
-                <div class="codeExample">
+                <div class="codeExample left">
                     <p>
-                    4. Getting input from users using function 'getCityAndState':
-                    <button onclick="getCityAndState()">So cool!</button>
+                    3. Getting input from users using function 'getCityAndState': <br/>
+                    <button onclick="getCityAndState()">Coords!</button>
                     <p id="demo4"></p>
                         <script>
                             function getCityAndState() {
-                                var city = prompt("Please enter your city", "");
-                                var state = prompt("Please enter your state", "");
+                                var city = prompt("Please enter your city", "Philadelphia");
+                                var state = prompt("Please enter your state", "PA");
                                 if ((city != null) && (state != null)) {
                                     document.getElementById("demo4").innerHTML =
                                         "I hear that " + city + ", " + state + " is great this time of year!";
@@ -136,6 +118,96 @@
                             }
                         </script>
                     </p>
+                </div>
+            </div>
+
+            <div class="hr hidden"></div>
+
+            <div class="flexBox">
+                    <div class="codeExample right">
+                        <p>
+                        4. Generating a Wunderground API Query URL: <br/>
+                        <button onclick="wundergroundRadar()">Push me to enter a city/state</button>
+                        <p id="wundergroundexample"></p>
+                        <script>
+                        // A function 'wundergroundRadar is declared'
+                        function wundergroundRadar() {
+                            // Assigns variable 'wc' with a string returned from a prompt
+                            var wc = prompt("Please enter a city", "Philadelphia");
+                            // Assigns variable 'ws' with a string returned from a prompt
+                            var ws = prompt("Please enter a state", "PA");
+                            // Assigns variable 'hyperlink' with a string "Click Here for Radar"
+                            var hyperlink = ("Click Here for Radar");
+                            // Assigns variable 'totalurl' with a concatenation of the variables and adds an anchor
+                            var totalurl = hyperlink.link("http://api.wunderground.com/api/4e770eb535baee60/animatedradar/q/"+ws+"/"+wc+".swf?width=500&height=500&newmaps=1&radius=400");
+                            // Checks if any variables have a null value
+                            if (wc != null && ws != null) {
+                            // Ignore the following lines if you don't want to make the hyperlink clickable
+                                document.getElementById("wundergroundexample").innerHTML =
+                                "Your API query URL is "+ totalurl;
+                            }
+                        }
+                        </script>
+                    </div>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="flexBox">
+                <div class="codeExample left">
+                    <p>
+                    4. Generating a Wunderground API Query URL: <br/>
+                    <button onclick="wundergroundRadar()">Push me to enter a city/state</button>
+                    <p id="wundergroundexample"></p>
+                    <script>
+                    // A function 'wundergroundRadar is declared'
+                    function wundergroundRadar() {
+                        // Assigns variable 'wc' with a string returned from a prompt
+                        var wc = prompt("Please enter a city", "Philadelphia");
+                        // Assigns variable 'ws' with a string returned from a prompt
+                        var ws = prompt("Please enter a state", "PA");
+                        // Assigns variable 'hyperlink' with a string "Click Here for Radar"
+                        var hyperlink = ("Click Here for Radar");
+                        // Assigns variable 'totalurl' with a concatenation of the variables and adds an anchor
+                        var totalurl = hyperlink.link("http://api.wunderground.com/api/4e770eb535baee60/animatedradar/q/"+ws+"/"+wc+".swf?width=500&height=500&newmaps=1&radius=400");
+                        // Checks if any variables have a null value
+                        if (wc != null && ws != null) {
+                        // Ignore the following lines if you don't want to make the hyperlink clickable
+                            document.getElementById("wundergroundexample").innerHTML =
+                            "Your API query URL is "+ totalurl;
+                        }
+                    }
+                    </script>
+                </div>
+            </div>
+
+            <div class="hr hidden"></div>
+
+            <div class="flexBox">
+                <div class="codeExample right">
+                    <p>
+                    4. Generating a Wunderground API Query URL: <br/>
+                    <button onclick="wundergroundRadar()">Push me to enter a city/state</button>
+                    <p id="wundergroundexample"></p>
+                    <script>
+                    // A function 'wundergroundRadar is declared'
+                    function wundergroundRadar() {
+                        // Assigns variable 'wc' with a string returned from a prompt
+                        var wc = prompt("Please enter a city", "Philadelphia");
+                        // Assigns variable 'ws' with a string returned from a prompt
+                        var ws = prompt("Please enter a state", "PA");
+                        // Assigns variable 'hyperlink' with a string "Click Here for Radar"
+                        var hyperlink = ("Click Here for Radar");
+                        // Assigns variable 'totalurl' with a concatenation of the variables and adds an anchor
+                        var totalurl = hyperlink.link("http://api.wunderground.com/api/4e770eb535baee60/animatedradar/q/"+ws+"/"+wc+".swf?width=500&height=500&newmaps=1&radius=400");
+                        // Checks if any variables have a null value
+                        if (wc != null && ws != null) {
+                        // Ignore the following lines if you don't want to make the hyperlink clickable
+                            document.getElementById("wundergroundexample").innerHTML =
+                            "Your API query URL is "+ totalurl;
+                        }
+                    }
+                    </script>
                 </div>
             </div>
         </div>

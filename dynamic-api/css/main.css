@@ -78,7 +78,7 @@ div.navHRtop {
 
 div.hr {
     height: 2px;
-    width: 90%;
+    width: 95%;
     margin: 0.2rem auto;
     display: block;
     background-color: #000000;
@@ -129,8 +129,20 @@ div.hidden {
 }
 
 .codeExample {
-    margin: 0 auto;
+    margin: 0 0 0 0;
     display: inline-block;
+}
+
+.codeExample p {
+    size: 1.15rem;
+}
+
+.left {
+    margin: 0 0 0 1rem;
+}
+
+.right {
+    margin: 0 1rem 0 0;
 }
 
 @media screen and (max-width: 950px) {
@@ -142,6 +154,21 @@ div.hidden {
         display: block;
     }
 
+    div.navHR {
+        margin-top: 2px;
+    }
+
+    div.navItem {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    div.navItem p {
+        margin: 0.2rem 1rem 0.2rem 1rem;
+        max-width: 90%;
+    }
+
     .pullLeft {
         display: block;
         width: 100%;
@@ -149,17 +176,18 @@ div.hidden {
     }
 
     .pullLeft a {
-        border-bottom: 1px solid #000000;
+        /*border-bottom: 1px solid #000000;*/
     }
 
     .pullRight {
         display: block;
         width: 100%;
         margin: 0 auto;
+        padding-bottom: 1px;
     }
 
     .pullRight a {
-        border-bottom: 1px solid #000000;
+        /*border: 1px solid #000000;*/
     }
 
     .pullLeft * {
@@ -174,5 +202,13 @@ div.hidden {
 
     .flexBox {
         width: 90%;
+    }
+
+    .left {
+        margin: 0;
+    }
+
+    .right {
+        margin: 0;
     }
 }
