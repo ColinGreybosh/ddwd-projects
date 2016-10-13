@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Dynamic API Calls</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <div class="navHRtop"></div>
+    <div class="nav">
+        <div class="pullLeft">
+            <a href="#">
+                <div class="navItem">
+                    <p>Home</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="navItem">
+                    <p>About</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="navItem">
+                    <p>Weather</p>
+                </div>
+            </a>
+        </div>
+        <div class="pullRight">
+            <a href="#">
+                <div class="navItem">
+                    <p>Help</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="navItem">
+                    <p>Me</p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="navItem">
+                    <p>Please</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="navHR"></div>
+    <div class="title">
+            <h1>JS Examples Are Included Below!</h1>
+    </div>
+    <div class="content">
+        <div class="flexContainer">
+            <div class="flexBox">
+                <div class="codeExample">
+                    <p>
+                    1. Getting input from users using function 'myFunction':
+                    <button onclick="myFunction()">Click This!</button>
+                    <p id="demo1"></p>
+                        <script>
+                            //This is a comment in javascipt
+                            /*This is
+                             a multiline
+                             comment in javascript
+                             */
+                            function myFunction() { // Declares a function 'myFunction'
+                                var person = prompt("Please enter your name", "");
+                                /*  Creates a variable called person which is equal to the response to
+                                    the prompt function */
+                                if (person != null) {     /* Changes the text in the <p> tag to the string below
+                                                             if variable person is not a null value */
+                                    document.getElementById("demo1").innerHTML =
+                                            "Hello " + person + "! How are you today?";
+                                }
+                            }
+                        </script>
+                    </p>
+                </div>
+            </div>
+            <div class="hr hidden"></div>
+            <div class="flexBox">
+                <div class="codeExample">
+                    <p>
+                    2. Getting input from users using function 'weekend':
+                    <button onclick="weekend()">Try it</button> <!-- Creates a button that runs function
+                                                                     'weekend' when clicked -->
+                    <p id="demo2"></p>
+                        <script>
+                            function weekend() { // Declares a function called 'weekend'
+                                var person = prompt("Please enter your name", ""); /* Sets the variable person equal
+                                                                                      to the user's response to the
+                                                                                      prompt*/
+                                if (person != null) { // Runs the code within the if statement
+                                    document.getElementById("demo2").innerHTML =
+                                        "Hello " + person + "! How was your weekend?";
+                                }
+                            }
+                        </script>
+                    </p>
+                </div>
+            </div>
+            <div class="hr"></div>
+            <div class="flexBox">
+                <div class="codeExample">
+                    <p>
+                    3. Getting input from users using function 'getLocation':
+                    <button onclick="getLocation()">So cool!</button>
+                    <p id="demo3"></p>
+                        <script>
+                            function getLocation() {
+                                var location = prompt("Please enter your city and state", "");
+                                if (location != null) {
+                                    document.getElementById("demo3").innerHTML =
+                                        "Hello " + person + "! How was your weekend?";
+                                }
+                            }
+                        </script>
+                    </p>
+                </div>
+            </div>
+            <div class="hr hidden"></div>
+            <div class="flexBox">
+                <div class="codeExample">
+                    <p>
+                    4. Getting input from users using function 'getCityAndState':
+                    <button onclick="getCityAndState()">So cool!</button>
+                    <p id="demo4"></p>
+                        <script>
+                            function getCityAndState() {
+                                var city = prompt("Please enter your city", "");
+                                var state = prompt("Please enter your state", "");
+                                if ((city != null) && (state != null)) {
+                                    document.getElementById("demo4").innerHTML =
+                                        "I hear that " + city + ", " + state + " is great this time of year!";
+                                }
+                            }
+                        </script>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

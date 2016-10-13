@@ -1,0 +1,178 @@
+html {
+    font-size: 110%;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.nav {
+    display:-webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    margin: 2px 0 0 0;
+    padding: 0 0rem 0 0rem;
+    background-color: #000000;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    text-decoration: none;
+}
+
+.navItem {
+    padding: 0.5rem;
+    outline: #F74907 solid 2px;
+    background-color: #F74907;
+    /*margin: 0rem 0.7rem;*/
+    width: 4rem;
+}
+
+.navItem p {
+    padding: 0;
+    margin: 0 auto;
+    color: #FFFFFF;
+}
+
+.pullLeft {
+    display: flex;
+    margin: 0 0 0 1rem;
+    justify-content: space-around;
+    width: 35%;
+    height: auto;
+}
+
+.pullLeft * {
+    display: inline-flex;
+}
+
+.pullRight {
+    display: flex;
+    margin: 0 1rem 0 0;
+    justify-content: space-around;
+    width: 35%;
+    height: auto;
+}
+
+.pullRight * {
+    display: inline-flex;
+}
+
+div.navHR {
+    height: 2px;
+    width: 100%;
+    margin: 2px auto;
+    display: block;
+    background-color: #000000;
+}
+
+div.navHRtop {
+    height: 2px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    background-color: #000000;
+}
+
+div.hr {
+    height: 2px;
+    width: 90%;
+    margin: 0.2rem auto;
+    display: block;
+    background-color: #000000;
+}
+
+div.shown {
+    display: block;
+}
+
+div.hidden {
+    display: none;
+}
+
+.content {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.title {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.title h1 {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    text-decoration: underline;
+}
+
+.flexContainer {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 2rem;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flexBox {
+    display: flex;
+    width: 45%;
+    height: auto;
+    margin: 0;
+}
+
+.codeExample {
+    margin: 0 auto;
+    display: inline-block;
+}
+
+@media screen and (max-width: 950px) {
+    div.shown {
+        display: none;
+    }
+
+    div.hidden {
+        display: block;
+    }
+
+    .pullLeft {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .pullLeft a {
+        border-bottom: 1px solid #000000;
+    }
+
+    .pullRight {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .pullRight a {
+        border-bottom: 1px solid #000000;
+    }
+
+    .pullLeft * {
+        display: block;
+        width: 100%;
+    }
+
+    .pullRight * {
+        display: block;
+        width: 100%;
+    }
+
+    .flexBox {
+        width: 90%;
+    }
+}
