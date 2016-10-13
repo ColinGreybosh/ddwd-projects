@@ -6,7 +6,7 @@ html {
 body {
     margin: 0;
 }
-
+/* VV Navigation Bar Styling for Desktop VV */
 .nav {
     display:-webkit-flex;
     display: flex;
@@ -24,10 +24,22 @@ body {
 
 .navItem {
     padding: 0.5rem;
-    outline: #F74907 solid 2px;
+    outline: #c53a06 solid 2px;
     background-color: #F74907;
-    /*margin: 0rem 0.7rem;*/
     width: 4rem;
+    -webkit-transition-duration: 0.4s;
+}
+
+.navItem:visited {
+    background-color: #F74907;
+}
+
+.navItem:hover {
+    background-color: #f86d38;
+}
+
+.navItem:active {
+    background-color: #f4391a;
 }
 
 .navItem p {
@@ -58,6 +70,14 @@ body {
 
 .pullRight * {
     display: inline-flex;
+}
+
+.left {
+    margin: 0 0 0 1rem;
+}
+
+.right {
+    margin: 0 1rem 0 0;
 }
 
 div.navHR {
@@ -91,7 +111,7 @@ div.shown {
 div.hidden {
     display: none;
 }
-
+/* ^^ Navigation Bar Styling For Desktop ^^ */
 .content {
     display: -webkit-flex;
     display: flex;
@@ -131,29 +151,30 @@ div.hidden {
 .codeExample {
     margin: 0 0 0 0;
     display: inline-block;
+    width: 100%;
 }
 
 .codeExample p {
     size: 1.15rem;
 }
 
-.left {
-    margin: 0 0 0 1rem;
+button {
+    -webkit-transition-duration: 0.5s;
+    background-color: #F74907;
+    width: 100%;
+    display: inline-block;
+    border-radius: 2px;
+    border: 2px solid #c53a06;
+    font-family: 'OpenSans', sans-serif;
+    padding: 0.5rem;
+    margin-top: 0.3rem;
 }
 
-.right {
-    margin: 0 1rem 0 0;
+button:hover {
+    background-color: #f86d38;
 }
 
 @media screen and (max-width: 950px) {
-    div.shown {
-        display: none;
-    }
-
-    div.hidden {
-        display: block;
-    }
-
     div.navHR {
         margin-top: 2px;
     }
@@ -162,6 +183,18 @@ div.hidden {
         margin: 0;
         padding: 0;
         max-width: 100%;
+    }
+
+    .navItem:visited {
+        background-color: #F74907;
+    }
+
+    .navItem:hover {
+        background-color: #f86d38;
+    }
+
+    .navItem:active {
+        background-color: #f4391a;
     }
 
     div.navItem p {
@@ -175,19 +208,11 @@ div.hidden {
         margin: 0 auto;
     }
 
-    .pullLeft a {
-        /*border-bottom: 1px solid #000000;*/
-    }
-
     .pullRight {
         display: block;
         width: 100%;
         margin: 0 auto;
         padding-bottom: 1px;
-    }
-
-    .pullRight a {
-        /*border: 1px solid #000000;*/
     }
 
     .pullLeft * {
@@ -200,8 +225,16 @@ div.hidden {
         width: 100%;
     }
 
-    .flexBox {
-        width: 90%;
+    .top {
+        margin-bottom: 2px;
+    }
+
+    .mid {
+        margin: 0.5px 0 1px 0;
+    }
+
+    .bot {
+        margin-top: 2px;
     }
 
     .left {
@@ -210,5 +243,17 @@ div.hidden {
 
     .right {
         margin: 0;
+    }
+
+        div.shown {
+        display: none;
+    }
+
+    div.hidden {
+        display: block;
+    }
+
+    .flexBox {
+        width: 90%;
     }
 }
