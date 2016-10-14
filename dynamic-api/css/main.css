@@ -1,6 +1,6 @@
 html {
     font-size: 110%;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", "Segoe UI", sans-serif;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 
 .navItem {
     padding: 0.5rem;
-    outline: #c53a06 solid 2px;
+    outline: #c53a06 solid 3px;
     background-color: #F74907;
     width: 4rem;
     -webkit-transition-duration: 0.4s;
@@ -128,6 +128,7 @@ div.hidden {
     margin: 0 auto;
     width: 100%;
     text-decoration: underline;
+    size: 6rem;
 }
 
 .flexContainer {
