@@ -69,3 +69,37 @@ function weatherConditions() {
         });
     });
 }
+
+function getGitRepos() {
+    // Take user information
+    var getUser = prompt("Enter your GitHub username", "colingreybosh");
+    var getRepo = prompt("Enter the name of your GitHub Repo", "projects");
+    var debug = "http://api.github.com/repos/" + getUser + "/" + getRepo + "/contents";
+
+    jQuery(document).ready(function($) {
+        $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
+            // Append an API call link
+            url : "http://api.github.com/repos/" + getUser + "/" + getRepo + "/contents",
+            dataType : "jsonp",
+            success : function(parsed_json) {
+                // VV Debug stuff
+                console.log(debug);
+                var gitResponse = parsed_json;
+                console.log(parsed_json);
+                console.log(gitResponse.data[0]);
+                // ^^ Debug stuff
+                // Get length of JSON response
+                var numItems = Object.keys(gitResponse.data).length;
+                console.log("Number of items in directory: " + numItems);
+                // Loops through JSON response, picking out subdirectories of the repository
+                for (var i = numItems - 1; i >= 0; i--) {
+                    if ((gitResponse.data[i].type == "dir") && (gitResponse.data[i].name != "webstorm-stuff")) {
+                        // Logs the git_url if the object is a directory
+                        console.log(gitResponse.data[i].git_url);
+                        // TODO add second $.ajax call to execute for the repo api links
+                    }
+                };
+            }
+        });
+    });
+}
