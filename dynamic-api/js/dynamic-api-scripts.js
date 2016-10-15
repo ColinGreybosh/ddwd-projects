@@ -38,7 +38,7 @@ function wundergroundRadar() {
     // Assigns variable 'hyperlink' with a string "Click Here for Radar"
     var hyperlink = ("Click Here for Radar");
     // Assigns variable 'totalurl' by appending the variables and adding an anchor
-    var totalurl = hyperlink.link("http://api.wunderground.com/api/4e770eb535baee60/animatedradar/q/"+ws+"/"+wc+".swf?width=500&height=500&newmaps=1&radius=400");
+    var totalurl = hyperlink.link("https://api.wunderground.com/api/4e770eb535baee60/animatedradar/q/"+ws+"/"+wc+".swf?width=500&height=500&newmaps=1&radius=400");
     // Checks if any variables have a null value
     if (wc != null && ws != null) {
     // Ignore the following lines if you don't want to make the hyperlink clickable
@@ -50,11 +50,11 @@ function wundergroundRadar() {
 function weatherConditions() {
     var city = prompt("Please enter a city", "Philadelphia");
     var state = prompt("Please enter a state", "PA");
-    var debug = "http://api.wunderground.com/api/4e770eb535baee60/conditions/q/" + state + "/" + city + ".json";
+    var debug = "https://api.wunderground.com/api/4e770eb535baee60/conditions/q/" + state + "/" + city + ".json";
 
     jQuery(document).ready(function($) {
         $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
-            url : "http://api.wunderground.com/api/4e770eb535baee60/conditions/q/" + state + "/" + city + ".json",
+            url : "https://api.wunderground.com/api/4e770eb535baee60/conditions/q/" + state + "/" + city + ".json",
             dataType : "jsonp",
             success : function(parsed_json) {
                 console.log(debug);
@@ -74,12 +74,12 @@ function getGitRepos() {
     // Take user information
     var getUser = prompt("Enter your GitHub username", "colingreybosh");
     var getRepo = prompt("Enter the name of your GitHub Repo", "projects");
-    var debug = "http://api.github.com/repos/" + getUser + "/" + getRepo + "/contents";
+    var debug = "https://api.github.com/repos/" + getUser + "/" + getRepo + "/contents";
 
     jQuery(document).ready(function($) {
         $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
             // Append an API call link
-            url : "http://api.github.com/repos/" + getUser + "/" + getRepo + "/contents",
+            url : "https://api.github.com/repos/" + getUser + "/" + getRepo + "/contents",
             dataType : "jsonp",
             success : function(parsed_json) {
                 // VV Debug stuff
