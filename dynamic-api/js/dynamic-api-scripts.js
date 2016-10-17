@@ -60,10 +60,11 @@ function weatherConditions() {
                 console.log(debug);
                 var tempF = parsed_json['current_observation']['temp_f'];
                 var tempC = parsed_json['current_observation']['temp_c'];
+                var weather = parsed_json ['current_observation']['weather'];
                 var location = parsed_json['current_observation']['display_location']['full'];
                 if ((city != null) && (state != null)) {
                     document.getElementById('wundergroundString').innerHTML =
-                        'It is currently ' + tempF + '°F (' + tempC + '°C) ' + 'in ' + location + '. Wow!';
+                        'It is currently ' + tempF + '°F (' + tempC + '°C) and ' + weather + ' in ' + location + '. Wow!';
                 }
             }
         });
@@ -97,6 +98,14 @@ function getGitRepos() {
                         // Logs the git_url if the object is a directory
                         console.log(gitResponse.data[i].git_url);
                         // TODO add second $.ajax call to execute for the repo api links
+                        $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
+                            // Append an API call link
+                            url : gitResponse.data[i].git_url,
+                            dataType : "jsonp",
+                            success : function(parsed_json) {
+                                // TODO add an if statement and links
+                            }
+                        });
                     }
                 };
             }
