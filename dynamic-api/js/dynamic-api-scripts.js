@@ -58,13 +58,13 @@ function weatherConditions() {
             dataType : "jsonp",
             success : function(parsed_json) {
                 console.log(debug);
-                var tempF = parsed_json['current_observation']['temp_f'];
-                var tempC = parsed_json['current_observation']['temp_c'];
-                var weather = parsed_json ['current_observation']['weather'];
-                var location = parsed_json['current_observation']['display_location']['full'];
+                var tempF = parsed_json.current_observation.temp_f;
+                var tempC = parsed_json.current_observation.temp_c;
+                var weather = parsed_json.current_observation.weather;
+                var loc = parsed_json.current_observation.display_location.full;
                 if ((city != null) && (state != null)) {
                     document.getElementById('wundergroundString').innerHTML =
-                        'It is currently ' + tempF + '°F (' + tempC + '°C) and ' + weather + ' in ' + location + '. Wow!';
+                        'It is currently ' + tempF + '°F (' + tempC + '°C) and ' + weather + ' in ' + loc + '. Wow!';
                 }
             }
         });
@@ -75,7 +75,6 @@ function getGitRepos() {
     // Take user information
     var getUser = prompt("Enter your GitHub username", "colingreybosh");
     var getRepo = prompt("Enter the name of your GitHub Repo", "projects");
-    var debug = "https://api.github.com/repos/" + getUser + "/" + getRepo + "/contents";
 
     jQuery(document).ready(function($) {
         $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
@@ -83,14 +82,10 @@ function getGitRepos() {
             url : "https://api.github.com/repos/" + getUser + "/" + getRepo + "/contents",
             dataType : "jsonp",
             success : function(parsed_json) {
-                // VV Debug stuff
-                console.log(debug);
                 var gitResponse = parsed_json;
-                console.log(parsed_json);
-                console.log(gitResponse.data[0]);
-                // ^^ Debug stuff
                 // Get length of JSON response
                 var numItems = Object.keys(gitResponse.data).length;
+                console.log(gitResponse);
                 console.log("Number of items in directory: " + numItems);
                 // Loops through JSON response, picking out subdirectories of the repository
                 for (var i = numItems - 1; i >= 0; i--) {
@@ -103,7 +98,22 @@ function getGitRepos() {
                             url : gitResponse.data[i].git_url,
                             dataType : "jsonp",
                             success : function(parsed_json) {
-                                // TODO add an if statement and links
+                                var repoContents = parsed_json;
+                                var numItems = Object.keys(repoContents.data).length;
+                                var link = document.createElement('p');
+                                var element = document.getElementById('links');
+                                console.log(repoContents);
+
+                                for (var i = numItems - 1; i>=0; i--) {
+                                    if ((repoContents.data[i].type == 'tree') && (repoContents.data[i].path == 'html')) {
+                                        var node = document.createTextNode(user + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
+                                        var hyperlink = (gitResponse.data[i].name);
+                                        var repoURL = hyperlink.link('https://' + user + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
+                                        link.appendChild(node);
+                                        element.appendChild(link);
+                                        // TODO fix this
+                                    }
+                                }
                             }
                         });
                     }
