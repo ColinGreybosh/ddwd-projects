@@ -105,10 +105,11 @@ function getGitRepos() {
                                 console.log(repoContents);
 
                                 for (var i = numItems - 1; i>=0; i--) {
-                                    if ((repoContents.data[i].type == 'tree') && (repoContents.data[i].path == 'html')) {
-                                        var node = document.createTextNode(user + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
+                                    console.log(repoContents.data.tree[i]);
+                                    if ((repoContents.data.tree[i].type == 'tree') && (repoContents.data.tree[i].path == 'html')) {
+                                        var node = document.createTextNode(getUser + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
                                         var hyperlink = (gitResponse.data[i].name);
-                                        var repoURL = hyperlink.link('https://' + user + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
+                                        var repoURL = hyperlink.link('https://' + getUser + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
                                         link.appendChild(node);
                                         element.appendChild(link);
                                         // TODO fix this
