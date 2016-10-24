@@ -128,10 +128,13 @@ function getGitRepos() {
                 for (var i = numItems - 1; i >= 0; i--) {
                     if (gitResponse.data.tree[i].type == "tree") {
                         currentDir = gitResponse.data.tree[i].path;
+                        // Appends the urlList string with table data tags which include a hyperlink to the GitHub pages site
                         urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
+                        // Outputs urlList to the HTML table
                         document.getElementById('output').innerHTML = urlList;
                     }
                 };
+                // Unhides the table once the information is entered
                 document.getElementById('hidden').style.display = 'block';
             },
             error : function() {
