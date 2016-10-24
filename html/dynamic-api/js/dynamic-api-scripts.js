@@ -101,38 +101,38 @@ function weatherConditions() {
 }
 
 function getGitRepos() {
+    // Take username, password, and repository name from input tags
     username = document.getElementById('user').value;
     password = document.getElementById('pass').value;
     reponame = document.getElementById('reponame').value;
+    // Use jQuery and ajax to pull repository information from GitHub
     jQuery(document).ready(function($) {
         $.ajax({
+            // Appends the username and repository name to create an API call URL
             url : "https://api.github.com/repos/" + username + "/" + reponame + "/git/trees/36d1214dc4fd6ca9c3e4a5ed867fa39a981091c6",
             dataType : "jsonp",
+            // Adds a Basic Auth header to the API call
             beforeSend: function(req) {
                 req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
             },
             success : function(parsed_json) {
+                // Sets password equal to null for security purposes
                 var password = null;
                 var gitResponse = parsed_json;
                 // Get length of JSON response
                 var numItems = Object.keys(gitResponse.data.tree).length;
-                console.log(gitResponse);
-                console.log("Number of items in directory: " + numItems);
-                // Loops through JSON response, picking out subdirectories of the repository
+                // Creates an empty string to place URL information into
                 var urlList = '';
                 var baseUrl = 'https://' + username + '.github.io' + '/' + reponame + '/html/';
-                // Initialized folders with an empty array
+                // Loops through JSON response, picking out subdirectories of the repository
                 for (var i = numItems - 1; i >= 0; i--) {
                     if (gitResponse.data.tree[i].type == "tree") {
-                        console.log("Iteration: " + i);
                         currentDir = gitResponse.data.tree[i].path;
                         urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
                         document.getElementById('output').innerHTML = urlList;
                     }
                 };
                 document.getElementById('hidden').style.display = 'block';
-                console.log(baseUrl);
-                console.log(urlList);
             },
             error : function() {
                 var password = null;
