@@ -149,6 +149,12 @@ div.hidden {
     margin: 0;
 }
 
+.center {
+    width: 100%;
+    display: block;
+    margin: 1rem;
+}
+
 .codeExample {
     margin: 0 0 0 0;
     display: inline-block;
@@ -174,6 +180,31 @@ button {
 
 button:hover {
     background-color: #f86d38;
+}
+
+#table {
+    display: none;
+}
+
+table {
+    border-collapse: collapse;
+    overflow-x: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+td, td {
+    padding: 10px;
+    text-align: center;
+}
+
+caption {
+    font-weight: bold;
+    size: 1.2rem;
 }
 
 @media screen and (max-width: 950px) {
@@ -257,5 +288,13 @@ button:hover {
 
     .flexBox {
         width: 90%;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    div#hidden.flexBox.center {
+        margin: 0;
     }
 }

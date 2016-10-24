@@ -65,6 +65,35 @@ function weatherConditions() {
                 if ((city != null) && (state != null)) {
                     document.getElementById('wundergroundString').innerHTML =
                         'It is currently ' + tempF + '°F (' + tempC + '°C) and ' + weather + ' in ' + loc + '. Wow!';
+                    $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
+                        url : "https://api.wunderground.com/api/4e770eb535baee60/conditions/q/" + state + "/" + city + ".json",
+                        dataType : "jsonp",
+                        success : function(parsed_json) {
+                            console.log(debug);
+                            var tempF = parsed_json.current_observation.temp_f;
+                            var tempC = parsed_json.current_observation.temp_c;
+                            var weather = parsed_json.current_observation.weather;
+                            var loc = parsed_json.current_observation.display_location.full;
+                            if ((city != null) && (state != null)) {
+                                document.getElementById('wundergroundString').innerHTML =
+                                    'It is currently ' + tempF + '°F (' + tempC + '°C) and ' + weather + ' in ' + loc + '. Wow!';
+                                $.ajax({
+                                    url : "http://api.wunderground.com/api/4e770eb535baee60/forecast10day/q/" + state + "/" + city + ".json",
+                                    dataType : "jsonp",
+                                    success : function(parsed_json) {
+                                        var forecast = parsed_json.forecast.simpleforecast.forecastday;
+                                        var rows = '';
+                                        for (var i = 0; i < (forecast.length / 2); i ++) {
+                                            console.log(parsed_json.forecast.simpleforecast.forecastday[i] + ': ' + i);
+                                            rows += '<tr><td>' + forecast[i].date.monthname + ' ' + forecast[i].date.day + '</td><td>' + forecast[i].conditions + '<td>' + forecast[i + (forecast.length / 2)].date.monthname + ' ' + forecast[i + (forecast.length / 2)].date.day + '</td><td>' + forecast[i + (forecast.length / 2)].conditions + '</td></tr>';
+                                            document.getElementById('output').innerHTML = (rows);
+                                        }
+                                        document.getElementById('hidden').style.display = 'block';
+                                    }
+                                });
+                            }
+                        }
+                    });
                 }
             }
         });
@@ -72,53 +101,42 @@ function weatherConditions() {
 }
 
 function getGitRepos() {
-    // Take user information
-    var getUser = prompt("Enter your GitHub username", "colingreybosh");
-    var getRepo = prompt("Enter the name of your GitHub Repo", "projects");
-
+    username = document.getElementById('user').value;
+    password = document.getElementById('pass').value;
+    reponame = document.getElementById('reponame').value;
     jQuery(document).ready(function($) {
-        $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
-            // Append an API call link
-            url : "https://api.github.com/repos/" + getUser + "/" + getRepo + "/contents",
+        $.ajax({
+            url : "https://api.github.com/repos/" + username + "/" + reponame + "/git/trees/36d1214dc4fd6ca9c3e4a5ed867fa39a981091c6",
             dataType : "jsonp",
+            beforeSend: function(req) {
+                req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
+            },
             success : function(parsed_json) {
+                var password = null;
                 var gitResponse = parsed_json;
                 // Get length of JSON response
-                var numItems = Object.keys(gitResponse.data).length;
+                var numItems = Object.keys(gitResponse.data.tree).length;
                 console.log(gitResponse);
                 console.log("Number of items in directory: " + numItems);
                 // Loops through JSON response, picking out subdirectories of the repository
+                var urlList = '';
+                var baseUrl = 'https://' + username + '.github.io' + '/' + reponame + '/html/';
+                // Initialized folders with an empty array
                 for (var i = numItems - 1; i >= 0; i--) {
-                    if ((gitResponse.data[i].type == "dir") && (gitResponse.data[i].name != "webstorm-stuff")) {
-                        // Logs the git_url if the object is a directory
-                        console.log(gitResponse.data[i].git_url);
-                        // TODO add second $.ajax call to execute for the repo api links
-                        $.ajax({ // Uses a URL based off user input to take a JSON response from the WunderGround API
-                            // Append an API call link
-                            url : gitResponse.data[i].git_url,
-                            dataType : "jsonp",
-                            success : function(parsed_json) {
-                                var repoContents = parsed_json;
-                                var numItems = Object.keys(repoContents.data).length;
-                                var link = document.createElement('p');
-                                var element = document.getElementById('links');
-                                console.log(repoContents);
-
-                                for (var i = numItems - 1; i>=0; i--) {
-                                    console.log(repoContents.data.tree[i]);
-                                    if ((repoContents.data.tree[i].type == 'tree') && (repoContents.data.tree[i].path == 'html')) {
-                                        var node = document.createTextNode(getUser + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
-                                        var hyperlink = (gitResponse.data[i].name);
-                                        var repoURL = hyperlink.link('https://' + getUser + 'github.io/' + getRepo + '/' + gitResponse.data[i].name + '/index.html/');
-                                        link.appendChild(node);
-                                        element.appendChild(link);
-                                        // TODO fix this
-                                    }
-                                }
-                            }
-                        });
+                    if (gitResponse.data.tree[i].type == "tree") {
+                        console.log("Iteration: " + i);
+                        currentDir = gitResponse.data.tree[i].path;
+                        urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
+                        document.getElementById('output').innerHTML = urlList;
                     }
                 };
+                document.getElementById('hidden').style.display = 'block';
+                console.log(baseUrl);
+                console.log(urlList);
+            },
+            error : function() {
+                var password = null;
+                alert('Invalid information! Please try again.');
             }
         });
     });

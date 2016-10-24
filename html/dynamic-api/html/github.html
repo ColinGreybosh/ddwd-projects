@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Dynamic API - GitHub</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/github.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
@@ -57,65 +58,26 @@
                 <div class="codeExample left" id="links">
                     <p>
                     1. Getting input from users using function 'getGitRepos': <br/>
+                    Username: <input type="text" id='user'></input> <br/>
+                    Password: <input type="password" id='pass'></input> <br/>
+                    Git Repo: <input type="text" id='reponame'></input> <br/>
                     <button onclick="getGitRepos()">Click This!</button>
                     </p>
                 </div>
             </div>
-
             <div class="hr hidden"></div>
-
-            <div class="flexBox">
+            <div class="flexBox" id="hidden" style="display: none;">
                 <div class="codeExample right">
-                    <p>
-                    2. Getting input from users using function 'getLocation': <br/>
-                    <button onclick="getLocation()">So cool!</button>
-                    <p id="demo3"></p>
-                    </p>
-                </div>
-            </div>
-
-            <div class="hr"></div>
-
-            <div class="flexBox">
-                <div class="codeExample left">
-                    <p>
-                    3. Getting input from users using function 'getCityAndState': <br/>
-                    <button onclick="getCityAndState()">Coords!</button>
-                    <p id="demo4"></p>
-                    </p>
-                </div>
-            </div>
-
-            <div class="hr hidden"></div>
-
-            <div class="flexBox">
-                    <div class="codeExample right">
-                        <p>
-                        4. Generating a Wunderground API Query URL: <br/>
-                        <button onclick="wundergroundRadar()">Push me to enter a city/state</button>
-                        <p id="wundergroundExample"></p>
-                    </div>
-            </div>
-
-            <div class="hr"></div>
-
-            <div class="flexBox">
-                <div class="codeExample left">
-                    <p>
-                    5. Generating a Wunderground API Query Response: <br/>
-                    <button onclick="weatherConditions()">Get Current Weather Conditions</button>
-                    <p id="wundergroundString"></p>
-                </div>
-            </div>
-
-            <div class="hr hidden"></div>
-
-            <div class="flexBox">
-                <div class="codeExample right">
-                    <p>
-                    6. Generating a Wunderground API Query URL: <br/>
-                    <button onclick="wundergroundRadar()">Push me to enter a city/state</button>
-                    <p id="wundergroundExample"></p>
+                    <table>
+                        <caption>GitHub Pages Website Links</caption>
+                        <thead>
+                            <tr>
+                                <th>Webpage Name</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody id="output"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
