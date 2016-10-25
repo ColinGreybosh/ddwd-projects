@@ -100,6 +100,53 @@ function weatherConditions() {
     });
 }
 
+// function getGitRepos() {
+//     // Take username, password, and repository name from input tags
+//     username = document.getElementById('user').value;
+//     password = document.getElementById('pass').value;
+//     reponame = document.getElementById('reponame').value;
+//     // Use jQuery and ajax to pull repository information from GitHub
+//     jQuery(document).ready(function($) {
+//         $.ajax({
+//             // Appends the username and repository name to create an API call URL
+//             url : "https://api.github.com/repos/" + username + "/" + reponame + "/git/trees/459946515bd7045ac4aac1f36d2fa2047fe338fe",
+//             dataType : "jsonp",
+//             // Adds a Basic Auth header to the API call
+//             beforeSend: function(req) {
+//                 req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
+//             },
+//             success : function(parsed_json) {
+//                 // Sets password equal to null for security purposes
+//                 var password = null;
+//                 var gitResponse = parsed_json;
+//                 // Get length of JSON response
+//                 var numItems = Object.keys(gitResponse.data.tree).length;
+//                 console.log(numItems);
+//                 // Creates an empty string to place URL information into
+//                 var urlList = '';
+//                 var baseUrl = 'https://' + username + '.github.io' + '/' + reponame + '/html/';
+//                 // Loops through JSON response, picking out subdirectories of the repository
+//                 for (var i = numItems - 1; i >= 0; i--) {
+//                     if (gitResponse.data.tree[i].type == "tree") {
+//                         currentDir = gitResponse.data.tree[i].path;
+//                         // Appends the urlList string with table data tags which include a hyperlink to the GitHub pages site
+//                         urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
+//                         // Outputs urlList to the HTML table
+//                         document.getElementById('output').innerHTML = urlList;
+//                         console.log(currentDir);
+//                     }
+//                 };
+//                 // Unhides the table once the information is entered
+//                 document.getElementById('hidden').style.display = 'block';
+//             },
+//             error : function() {
+//                 var password = null;
+//                 alert('Invalid information! Please try again.');
+//             }
+//         });
+//     });
+// }
+
 function getGitRepos() {
     // Take username, password, and repository name from input tags
     username = document.getElementById('user').value;
@@ -109,36 +156,77 @@ function getGitRepos() {
     jQuery(document).ready(function($) {
         $.ajax({
             // Appends the username and repository name to create an API call URL
-            url : "https://api.github.com/repos/" + username + "/" + reponame + "/git/trees/36d1214dc4fd6ca9c3e4a5ed867fa39a981091c6",
+            url : "https://api.github.com/repos/" + username + "/" + reponame + "/contents",
             dataType : "jsonp",
             // Adds a Basic Auth header to the API call
             beforeSend: function(req) {
                 req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
             },
             success : function(parsed_json) {
-                // Sets password equal to null for security purposes
-                var password = null;
-                var gitResponse = parsed_json;
-                // Get length of JSON response
-                var numItems = Object.keys(gitResponse.data.tree).length;
-                // Creates an empty string to place URL information into
-                var urlList = '';
-                var baseUrl = 'https://' + username + '.github.io' + '/' + reponame + '/html/';
-                // Loops through JSON response, picking out subdirectories of the repository
-                for (var i = numItems - 1; i >= 0; i--) {
-                    if (gitResponse.data.tree[i].type == "tree") {
-                        currentDir = gitResponse.data.tree[i].path;
-                        // Appends the urlList string with table data tags which include a hyperlink to the GitHub pages site
-                        urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
-                        // Outputs urlList to the HTML table
-                        document.getElementById('output').innerHTML = urlList;
+                var gitDir = parsed_json;
+                console.log(gitDir);
+                gitDirLength = (gitDir.data.length);
+                console.log(gitDirLength);
+                for (var i = gitDirLength; i >= 0; i--) {
+                    if ((gitDir.data[i].type == dir) && (gitDir.data[i].size == 0)) {
+                        $.ajax({
+                            url : gitDir.data[i].git_url,
+                            dataType : 'jsonp',
+                            beforeSend: function(req) {
+                                req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
+                            },
+                            success : function(htmlDir) {
+                                password = null;
+                                var htmlDirLength = Object.keys(htmlDir.data.tree).length;
+                                console.log('numItems = ' + htmlDirLength);
+                                var baseUrl = 'https://' + username + '.github.io' + '/' + reponame + '/html/';
+                                console.log('Base URL = ' + based);
+                                var urlList = '';
+                                // Loops through JSON response, picking out subdirectories of the repository
+                                for (var j = htmlDirLength - 1; j >= 0; j--) {
+                                    if (htmlDir.data.tree[j].type == "tree") {
+                                        currentDir = htmlDir.data.tree[j].path;
+                                        console.log('currentDir = ' + currentDir);
+                                        // Appends the urlList string with table data tags which include a hyperlink to the GitHub pages site
+                                        urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
+                                        // Outputs urlList to the HTML table
+                                        document.getElementById('output').innerHTML = urlList;
+                                    }
+                                };
+                                // Unhides the table once the information is entered
+                                document.getElementById('hidden').style.display = 'block';
+                                console.log('Done!');
+                            },
+                            error : function() {
+                                password = null;
+                                alert('Something went wrong! Please try again.');
+                            }
+                        });
                     }
-                };
-                // Unhides the table once the information is entered
-                document.getElementById('hidden').style.display = 'block';
+                }
+                // // Sets password equal to null for security purposes
+                // var password = null;
+                // var gitResponse = parsed_json;
+                // // Get length of JSON response
+                // var numItems = Object.keys(gitResponse.data.tree).length;
+                // // Creates an empty string to place URL information into
+                // var urlList = '';
+                // var baseUrl = 'https://' + username + '.github.io' + '/' + reponame + '/html/';
+                // // Loops through JSON response, picking out subdirectories of the repository
+                // for (var j = numItems - 1; j >= 0; j--) {
+                //     if (gitResponse.data.tree[j].type == "tree") {
+                //         currentDir = gitResponse.data.tree[j].path;
+                //         // Appends the urlList string with table data tags which include a hyperlink to the GitHub pages site
+                //         urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
+                //         // Outputs urlList to the HTML table
+                //         document.getElementById('output').innerHTML = urlList;
+                //     }
+                // };
+                // // Unhides the table once the information is entered
+                // document.getElementById('hidden').style.display = 'block';
             },
             error : function() {
-                var password = null;
+                password = null;
                 alert('Invalid information! Please try again.');
             }
         });
