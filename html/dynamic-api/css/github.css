@@ -1,0 +1,7 @@
+span.underline {
+    text-decoration: underline;
+}
+
+div#hidden {
+    margin: 1rem 0 0 0;
+}

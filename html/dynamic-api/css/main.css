@@ -6,7 +6,9 @@ html {
 body {
     margin: 0;
 }
+
 /* VV Navigation Bar Styling for Desktop VV */
+
 .nav {
     display:-webkit-flex;
     display: flex;
@@ -18,196 +20,214 @@ body {
     flex-wrap: wrap;
 }
 
-.nav a {
-    text-decoration: none;
-}
+    .nav a {
+        text-decoration: none;
+    }
 
-.navItem {
-    padding: 0.5rem;
-    outline: #c53a06 solid 3px;
-    background-color: #F74907;
-    width: 4rem;
-    -webkit-transition-duration: 0.4s;
-}
+    .navItem {
+        padding: 0.5rem;
+        outline: #c53a06 solid 3px;
+        background-color: #F74907;
+        width: 4rem;
+        -webkit-transition-duration: 0.4s;
+    }
 
-.navItem:visited {
-    background-color: #F74907;
-}
+        .navItem:visited {
+            background-color: #F74907;
+        }
 
-.navItem:hover {
-    background-color: #f86d38;
-}
+        .navItem:hover {
+            background-color: #f86d38;
+        }
 
-.navItem:active {
-    background-color: #f4391a;
-}
+        .navItem:active {
+            background-color: #f4391a;
+        }
 
-.navItem p {
-    padding: 0;
-    margin: 0 auto;
-    color: #FFFFFF;
-}
+        .navItem p {
+            padding: 0;
+            margin: 0 auto;
+            color: #FFFFFF;
+        }
 
-.pullLeft {
-    display: flex;
-    margin: 0 0 0 1rem;
-    justify-content: space-around;
-    width: 35%;
-    height: auto;
-}
+        .pullLeft {
+            display: flex;
+            margin: 0 0 0 1rem;
+            justify-content: space-around;
+            width: 35%;
+            height: auto;
+        }
 
-.pullLeft * {
-    display: inline-flex;
-}
+        .pullLeft * {
+            display: inline-flex;
+        }
 
-.pullRight {
-    display: flex;
-    margin: 0 1rem 0 0;
-    justify-content: space-around;
-    width: 35%;
-    height: auto;
-}
+        .pullRight {
+            display: flex;
+            margin: 0 1rem 0 0;
+            justify-content: space-around;
+            width: 35%;
+            height: auto;
+        }
 
-.pullRight * {
-    display: inline-flex;
-}
+        .pullRight * {
+            display: inline-flex;
+        }
 
-.left {
-    margin: 0 0 0 1rem;
-}
+        .left {
+            margin: 0 0 0 1rem;
+        }
 
-.right {
-    margin: 0 1rem 0 0;
-}
+        .right {
+            margin: 0 1rem 0 0;
+        }
 
-div.navHR {
-    height: 2px;
-    width: 100%;
-    margin: 2px auto;
-    display: block;
-    background-color: #000000;
-}
+    div.navHR {
+        height: 2px;
+        width: 100%;
+        margin: 2px auto;
+        display: block;
+        background-color: #000000;
+    }
 
-div.navHRtop {
-    height: 2px;
-    width: 100%;
-    margin: 0 auto;
-    display: block;
-    background-color: #000000;
-}
+        div.navHRtop {
+            height: 2px;
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            background-color: #000000;
+        }
 
-div.hr {
-    height: 2px;
-    width: 95%;
-    margin: 0.2rem auto;
-    display: block;
-    background-color: #000000;
-}
+        div.hr {
+            height: 2px;
+            width: 95%;
+            margin: 0.2rem auto;
+            display: block;
+            background-color: #000000;
+        }
 
-div.shown {
-    display: block;
-}
+        div.shown {
+            display: block;
+        }
 
-div.hidden {
-    display: none;
-}
+        div.hidden {
+            display: none;
+        }
+
 /* ^^ Navigation Bar Styling For Desktop ^^ */
+
 .content {
     display: -webkit-flex;
     display: flex;
 }
 
-.title {
-    width: 100%;
-    height: auto;
-    margin-top: 1rem;
-}
+    .title {
+        width: 100%;
+        height: auto;
+        margin-top: 1rem;
+    }
 
-.title h1 {
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-    text-decoration: underline;
-    size: 6rem;
-}
+        .title h1 {
+            text-align: center;
+            margin: 0 auto;
+            width: 100%;
+            text-decoration: underline;
+            size: 6rem;
+        }
 
-.flexContainer {
-    display: flex;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    margin-top: 2rem;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+    .flexContainer {
+        display: flex;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 2rem;
+        justify-content: space-around;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 
-.flexBox {
-    display: flex;
-    width: 45%;
-    height: auto;
-    margin: 0;
-}
+        .flexBox {
+            display: flex;
+            width: 45%;
+            height: auto;
+            margin: 0;
+        }
 
-.center {
-    width: 100%;
-    display: block;
-    margin: 1rem;
-}
+        .center {
+            width: 100%;
+            display: block;
+            margin: 1rem;
+        }
 
-.codeExample {
-    margin: 0 0 0 0;
-    display: inline-block;
-    width: 100%;
-}
+        .codeExample {
+            margin: 0 0 0 0;
+            display: inline-block;
+            width: 100%;
+        }
 
-.codeExample p {
-    size: 1.15rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
+            .codeExample p {
+                size: 1.15rem;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
 
-button {
-    -webkit-transition-duration: 0.5s;
-    background-color: #F74907;
-    width: 100%;
-    display: inline-block;
-    border-radius: 2px;
-    border: 2px solid #c53a06;
-    font-family: 'OpenSans', sans-serif;
-    padding: 0.5rem;
-    margin-top: 0.3rem;
-    color: white;
-}
+            input {
+                width: 100%;
+            }
 
-button:hover {
-    background-color: #f86d38;
-}
+            button {
+                -webkit-transition-duration: 0.5s;
+                background-color: #F74907;
+                width: 100%;
+                display: inline-block;
+                border-radius: 2px;
+                border: 2px solid #c53a06;
+                font-family: 'OpenSans', sans-serif;
+                padding: 0.5rem;
+                margin-top: 0.3rem;
+                color: white;
+                cursor: pointer;
+                size: 1.3rem;
+            }
 
-table {
-    border-collapse: collapse;
-    overflow-x: auto;
-}
+                button:hover {
+                    background-color: #f86d38;
+                }
 
-table, th, td {
-    border: 1px solid black;
-    max-width: 85%;
-    margin: 0 auto;
-}
+                button:focus {
+                    outline-color: black;
+                }
 
-td, td {
-    padding: 10px;
-    text-align: center;
-}
+            table {
+                border-collapse: collapse;
+                overflow-x: auto;
+            }
 
-caption {
-    font-weight: bold;
-    size: 1.2rem;
-}
+                table, th, td {
+                    border: 1px solid black;
+                    max-width: 85%;
+                    margin: 0 auto;
+                }
 
-input {
-    width: 100%;
-}
+                td, td {
+                    padding: 10px;
+                    text-align: center;
+                }
+
+                    td.tableLeft {
+                        text-align: left;
+                    }
+
+                    td.tableRight {
+                        font-weight: bold;
+                    }
+
+                caption {
+                    font-weight: bold;
+                    size: 1.2rem;
+                }
+
+/* VV Styling for mobile and smaller screens */
 
 @media screen and (max-width: 950px) {
     div.navHR {

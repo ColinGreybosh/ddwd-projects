@@ -116,15 +116,10 @@ function getGitRepos() {
                 req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
             },
             success : function(gitDir) {
-                console.log(gitDir);
+                // Take length of API response data
                 gitDirLength = (gitDir.data.length);
-                console.log(gitDirLength);
                 for (var i = 0; i < gitDirLength; i++) {
-                    // Some debug info to show what the for loop is doing
-                    console.log('gitDir.data[0]: ' + gitDir.data[0]);
-                    console.log('gitDir.data[i]: ' + gitDir.data[i]);
-                    console.log('i: ' + i);
-                    console.log('git_url: ' + gitDir.data[i].git_url)
+                    // IF the specific object is a directory with size 0 and a name of 'html', call the API again
                     if (gitDir.data[i].type == 'dir' && gitDir.data[i].size == 0 && gitDir.data[i].name == 'html') {
                         $.ajax({
                             url : gitDir.data[i].git_url,
@@ -133,26 +128,25 @@ function getGitRepos() {
                                 req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
                             },
                             success : function(htmlDir) {
+                                // API call returns the file structure of the html folder in the repo
                                 var htmlDirLength = Object.keys(htmlDir.data.tree).length;
-                                console.log('numItems = ' + htmlDirLength);
                                 var baseUrl = 'https://' + username + '.github.io' + '/' + reponame + '/html/';
-                                console.log('Base URL = ' + baseUrl);
                                 var urlList = '';
-                                // Loops through JSON response, picking out subdirectories of the repository
+                                // Loops through JSON code and takes the path of the folders within "user/repo/html/"
                                 for (var j = 0; j < htmlDirLength; j++) {
+                                    // IF the item in the directory is a tree, log the name
                                     if (htmlDir.data.tree[j].type == "tree") {
                                         currentDir = htmlDir.data.tree[j].path;
-                                        console.log('currentDir = ' + currentDir);
                                         // Appends the urlList string with table data tags which include a hyperlink to the GitHub pages site
-                                        urlList += '<tr><td>' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '\/' + 'html\/index.html<\/a>' + '<\/td><td>' + currentDir + '<\/td></tr>';
+                                        urlList += '<tr><td class="tableLeft">' + '<a href="' + baseUrl + currentDir + '\/' + 'html\/index.html" target="_blank">' + currentDir + '\/' + 'html\/index.html<\/a>' + '<\/td><td class="tableRight">' + currentDir + '<\/td></tr>';
                                         // Outputs urlList to the HTML table
                                         document.getElementById('output').innerHTML = urlList;
                                         password = null;
+                                        // var password is set equal to null for security purposes
                                     }
                                 };
                                 // Unhides the table once the information is entered
                                 document.getElementById('hidden').style.display = 'block';
-                                console.log('Done!');
                             },
                             // If ajax throws an error, an alert box will appear
                             error : function() {
