@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
-    <section>
+    <section id="navFull">
         <div class="navHRtop"></div>
         <div class="nav">
         <div class="pullLeft">
@@ -49,18 +49,31 @@
         </div>
         <div class="navHR"></div>
         <div class="title">
-            <h1>JS Examples Are Included Below!</h1>
+            <h1>Midterm Performance Task!</h1>
         </div>
     </section>
     <div class="content">
         <div class="flexContainer">
             <div class="flexBox">
-                <div class="codeExample left" id="links">
+                <div class="codeExample center">
+                    <p>
+                        Welcome to my Midterm project featuring the GitHub API! I decided to incorporate the GitHub API into my webpage for a couple reasons:
+                        <ol>
+                            <li>GitHub Pages URLs are tedious to type out.</li>
+                            <li>You need to check the file structure of the repository to find index.html files.</li>
+                            <li>You can place this webpage into the root of your own HTML repository to create a dynamically generated list of hyperlinks to your own websites.</li>
+                        </ol>
+                    </p>
+                </div>
+            </div>
+            <div class="hr hidden"></div>
+            <div class="flexBox">
+                <div class="codeExample left">
                     <p>
                     1. Getting input from users using function 'getGitRepos': <br/>
-                    Username: <input type="text" id='user'></input> <br/>
-                    Password: <input type="password" id='pass'></input> <br/>
-                    Git Repo: <input type="text" id='reponame'></input> <br/>
+                    Username: <input type="text" class="input" id="user"></input> <br/>
+                    Password: <input type="password" class="input" id="pass"></input> <br/>
+                    Git Repo: <input type="text" class="input" id="reponame"></input> <br/>
                     <button onclick="getGitRepos()">Click This!</button>
                     </p>
                 </div>
