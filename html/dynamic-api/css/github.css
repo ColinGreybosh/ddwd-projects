@@ -2,6 +2,33 @@ span.underline {
     text-decoration: underline;
 }
 
+span.bold {
+    font-weight: bold;
+}
+
 div#hidden {
     margin: 1rem 0 0 0;
+}
+
+p#error {
+    color: #c53a06;
+    font-style: italic;
+}
+
+p#repoStructure {
+
+}
+
+.inputRadio {
+    width: auto;
+    display: inline-block;
+}
+
+.inputRadioText {
+    width: auto;
+    display: inline-block;
+}
+
+.option {
+    display: flex;
 }

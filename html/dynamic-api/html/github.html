@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/github.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" defer></script>
+    <script src="../js/gitScripts.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 <body>
     <section id="navFull">
@@ -70,13 +72,35 @@
             <div class="hr hidden"></div>
             <div class="flexBox">
                 <div class="codeExample right">
-                    <p>
-                    1. Getting input from users using function 'getGitRepos': <br/>
-                    <span class="underline">Username</span>: <input type="text" class="input" id="user"></input> <br/>
-                    <span class="underline">Password</span>: <input type="password" class="input" id="pass"></input> <br/>
-                    <span class="underline">Git Repo</span>: <input type="text" class="input" id="reponame"></input> <br/>
-                    <button onclick="getGitRepos()">Click This!</button>
-                    </p>
+                    <p>1. Getting input from users using function 'getGitRepos':</p>
+                    <p><span class="underline">Username</span>:</p> <input type="text" class="input" id="user" autofocus></input> <br/>
+                    <p><span class="underline">Git Repo</span>:</p> <input type="text" class="input" id="repo"></input> <br/>
+                    <div class="directoryInput">
+                        <p><span class="underline">Choose Your Webpages' Locations</span>:</p>
+                        <form class="folderInput">
+                            <div class="option">
+                                <p class="radioText">
+                                    <input type="radio" class="input inputRadio" name="repoRadio" id="mainToggle"/>
+                                    In the main directory
+                                </p>
+                            </div>
+                            <div class="option">
+                                <p class="radioText">
+                                <input type="radio" class="input inputRadio" name="repoRadio" id="folderToggle"/>
+                                Under a folder named: <input type="text" class="inputRadioText" id="folder"/>
+                                </p>
+                            </div>
+                            <div class="option">
+                                <p class="radioText">
+                                    <input type="radio" class="input inputRadio" name="repoRadio" id="otherToggle"/>
+                                    Other: <input type="text" class="inputRadioText" id="folders"/>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                    <button onclick="getGitRepos()">Click to generate URLs!</button>
+                    <p id="repoStructure" style="display: none;">Loading...</p>
+                    <p id="error" style="display: none;"></p>
                 </div>
             </div>
             <div class="hr hidden"></div>
@@ -96,7 +120,5 @@
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-    <script src="../js/dynamic-api-scripts.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
