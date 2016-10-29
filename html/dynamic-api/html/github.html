@@ -57,21 +57,7 @@
     <div class="content">
         <div class="flexContainer">
             <div class="flexBox">
-                <div class="codeExample left" id="paragraph">
-                    <p>
-                        Welcome to my Midterm project featuring the GitHub API! I decided to incorporate the GitHub API into my webpage for a couple reasons:
-                        <ol>
-                            <li>GitHub Pages URLs are tedious to type out.</li>
-                            <li>You need to check the file structure of the repository to find index.html files.</li>
-                            <li>You can place this webpage into the root of your own HTML repository to create a dynamically generated list of hyperlinks to your own websites.</li>
-                            <li>I wanted a challenge by using oAuth paired with ajax calls and a different API.</li>
-                        </ol>
-                    </p>
-                </div>
-            </div>
-            <div class="hr hidden"></div>
-            <div class="flexBox">
-                <div class="codeExample right">
+                <div class="codeExample left">
                     <p>1. Getting input from users using function 'getGitRepos':</p>
                     <p><span class="underline">Username</span>:</p> <input type="text" class="input" id="user" placeholder="octocat" autofocus></input> <br/>
                     <p><span class="underline">Git Repo</span>:</p> <input type="text" class="input" id="repo" placeholder="octoKit"></input> <br/>
@@ -91,13 +77,13 @@
                                 <input type="text" class="input RadioText" id="folder" placeholder="folder"/>
                                 </p>
                             </div>
-                            <div class="option">
+                            <!--<div class="option">
                                 <p class="radioText">
                                     <input type="radio" class="input inputRadio" name="repoRadio" id="otherToggle"/>
                                     Other:
                                     <input type="text" class="input RadioText" id="other" placeholder="other/folder" />
                                 </p>
-                            </div>
+                            </div>-->
                         </form>
                     </div>
                     <button onclick="getGitRepos()">Click to generate URLs!</button>
@@ -106,8 +92,21 @@
                 </div>
             </div>
             <div class="hr hidden"></div>
-            <div class="flexBox" id="hidden" style="display: none;">
-                <div class="codeExample center">
+            <div class="flexContainer flexBox">
+                <div class="codeExample right" id="paragraph">
+                    <p>
+                        Welcome to my Midterm project featuring the GitHub API! I decided to incorporate the GitHub API into my webpage for a couple reasons:
+                        <ol>
+                            <li>GitHub Pages URLs are tedious to type out.</li>
+                            <li>You need to check the file structure of the repository to find index.html files.</li>
+                            <li>You can place this webpage into the root of your own HTML repository to create a dynamically generated list of hyperlinks to your own websites.</li>
+                            <li>I wanted a challenge by using oAuth paired with ajax calls and a different API.</li>
+                        </ol>
+                    </p>
+                </div>
+                <div class="hr hidden"></div>
+                <div class="flexBox" id="hidden" style="display: none;">
+                <div class="codeExample right">
                     <table>
                         <caption>GitHub Pages Website Links</caption>
                         <thead>
@@ -119,6 +118,7 @@
                         <tbody id="output"></tbody>
                     </table>
                 </div>
+            </div>
             </div>
         </div>
     </div>

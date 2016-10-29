@@ -8,6 +8,8 @@ span.bold {
 
 div#hidden {
     margin: 1rem 0 0 0;
+    flex-direction: column;
+    flex: 2;
 }
 
 p#error {
