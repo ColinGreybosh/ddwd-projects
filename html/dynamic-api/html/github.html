@@ -73,27 +73,29 @@
             <div class="flexBox">
                 <div class="codeExample right">
                     <p>1. Getting input from users using function 'getGitRepos':</p>
-                    <p><span class="underline">Username</span>:</p> <input type="text" class="input" id="user" autofocus></input> <br/>
-                    <p><span class="underline">Git Repo</span>:</p> <input type="text" class="input" id="repo"></input> <br/>
+                    <p><span class="underline">Username</span>:</p> <input type="text" class="input" id="user" placeholder="octocat" autofocus></input> <br/>
+                    <p><span class="underline">Git Repo</span>:</p> <input type="text" class="input" id="repo" placeholder="octoKit"></input> <br/>
                     <div class="directoryInput">
                         <p><span class="underline">Choose Your Webpages' Locations</span>:</p>
                         <form class="folderInput">
                             <div class="option">
                                 <p class="radioText">
-                                    <input type="radio" class="input inputRadio" name="repoRadio" id="mainToggle"/>
-                                    In the main directory
+                                    <input type="radio" class="input inputRadio" name="repoRadio" id="mainToggle" placeholder="octoKit / $websiteDirectory" />
+                                    In the main directory, contained in seperate folders
                                 </p>
                             </div>
                             <div class="option">
                                 <p class="radioText">
                                 <input type="radio" class="input inputRadio" name="repoRadio" id="folderToggle"/>
-                                Under a folder named: <input type="text" class="inputRadioText" id="folder"/>
+                                Under a folder named:
+                                <input type="text" class="input RadioText" id="folder" placeholder="folder"/>
                                 </p>
                             </div>
                             <div class="option">
                                 <p class="radioText">
                                     <input type="radio" class="input inputRadio" name="repoRadio" id="otherToggle"/>
-                                    Other: <input type="text" class="inputRadioText" id="folders"/>
+                                    Other:
+                                    <input type="text" class="input RadioText" id="other" placeholder="other / other" />
                                 </p>
                             </div>
                         </form>

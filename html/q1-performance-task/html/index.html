@@ -1,0 +1,103 @@
+<!--
+1.) The page is missing a title.  Add the appropriate code so that "API Performance Task" shows up in the title bar
+ of the current window (1pt)
+2.) Use CSS inside the style tags below to specify colors for your page (at least one CSS and one <DIV>, <P> tag) (2pt)
+3.) Use the comment tags to explain what is happening in the line with empty comment tags (1pt)
+4.) Use javascript comments to explain what lines with comment tags are doing (3pts)
+5.) Complete the code below so that the end result is a page that has a button labeled "Almanac" and when pushed will
+prompt the user for city and state, and then retrieve the following information:
+    a.) normal high temp
+    b.) record high temp
+    c.) normal low temp
+    d.) record low temp
+
+   The information should be shown to the user neatly, one piece of data on each line (with appropriate surrounding
+   (12pts)
+
+   This adds up to 19 points.  The Performance Task is a 20 point assignment.  Because I am nice, you will get the
+   final point if you can say "Toy Boat" 10 times fast without messing up.  GO!!!!  text-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Performance Task</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <!-- jQuery, which is needed to make the API call below, is being sourced from this script tag to be included in the webpage. -->
+    <style>
+        html {
+            size: 110%;
+            font-family: Segoe, sans-serif;
+            background: #111111;
+        }
+        p {
+            size: 1.5rem;
+            color: #F74907;
+            text-align: center;
+            margin: 0.5rem;
+        }
+        .response {
+            margin: 0 auto;
+            background-color: white;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="appledumplings()">Almanac</button>
+    <div class="response" id="response" style="display:none">
+        <div class="flexbox">
+            <p id="iliketoeatapplesandbananas"></p>
+        </div>
+        <div class="flexbox">
+            <p id="rechigh"></p>
+        </div>
+        <div class="flexbox">
+            <p id="lowtemp"></p>
+        </div>
+        <div class="flexbox">
+            <p id="reclow"></p>
+        </div>
+    </div>
+    <script>
+        function appledumplings() {
+            // Sets variables city and state equal to the responses from the prompts
+            var city = prompt("Please enter your city", "");
+            var state = prompt("Please enter your state", "");
+
+            jQuery(document).ready(function ($) {
+                $.ajax({
+                    url: "http://api.wunderground.com/api/4e770eb535baee60/almanac/q/" + state + "/" + city + ".json", // Changed API key to mine
+                    dataType: "jsonp",
+                    success: function (weatherstuff) {
+                        var hightemp = weatherstuff.almanac.temp_high.normal.F;
+                        var lowtemp = weatherstuff.almanac.temp_low.normal.F;
+                        var rechigh = weatherstuff.almanac.temp_high.record.F;
+                        var reclow = weatherstuff.almanac.temp_low.record.F;
+
+                        if (city != null && state != null) { // If the city and state variables are not null values, the enveloped code will run
+
+                            document.getElementById("iliketoeatapplesandbananas").innerHTML =
+                            // The html tag with ID iliketoeatapplesandbananas is having its inner HTML code set to the appended string below
+                                    "The normal high for today's date in " + city +  " is " + hightemp + '°F.';
+                            document.getElementById("rechigh").innerHTML =
+                            // The html tag with ID rechigh is having its inner HTML code set to the appended string below
+                                    "The record high in " + city +  " is " + rechigh + '°F.';
+                            document.getElementById("lowtemp").innerHTML =
+                            // The html tag with ID lowtemp is having its inner HTML code set to the appended string below
+                                    "The normal low for today's date in " + city +  " is " + lowtemp + '°F.';
+                            document.getElementById("reclow").innerHTML =
+                            // The html tag with ID reclow is having its inner HTML code set to the appended string below
+                                    "The record low in " + city +  " is " + reclow + '°F.';
+                            }
+                            document.getElementById('response').style.display = 'block';
+
+
+                    }
+                });
+            });
+
+        }
+    </script>
+
+</body>
+</html>

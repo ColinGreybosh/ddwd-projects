@@ -16,7 +16,11 @@ p#error {
 }
 
 p#repoStructure {
+    /* TODO add styling to directory output */
+}
 
+p.radioText {
+    width: 100%;
 }
 
 .inputRadio {
@@ -24,9 +28,9 @@ p#repoStructure {
     display: inline-block;
 }
 
-.inputRadioText {
-    width: auto;
+.RadioText {
     display: inline-block;
+    flex: 2;
 }
 
 .option {
