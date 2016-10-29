@@ -30,6 +30,8 @@ function getGitRepos() {
         printError('You did not enter a username or repository name! Please try again.');
     } else if (mainChecked) {
         jQuery(document).ready(function($) {
+            userName = $('#user').val();
+            repoName = $('#repo').val();
             $.ajax({
                 url : "https://api.github.com/repos/" + userName + "/" + repoName + "/contents" + "?access_token=" + oauthToken + oauthToken2,
                 dataType : 'jsonp',
@@ -72,6 +74,9 @@ function getGitRepos() {
             });
         });
     } else if (folderChecked && !isEmpty(folder)) {
+        userName = $('#user').val();
+        repoName = $('#repo').val();
+        folder = $('#folder').val();
         jQuery(document).ready(function($) {
             $.ajax({
                 url : "https://api.github.com/repos/" + userName + "/" + repoName + "/contents" + "?access_token=" + oauthToken + oauthToken2,
@@ -79,16 +84,15 @@ function getGitRepos() {
                 success : function(gitDir) {
                     console.log('gitDir:');
                     console.log(gitDir);
-                    // This entire if, else if, else statement filters out possible API returns that do not include the wanted data.
-                    // If the requested data is in the response, the code runs normally
-                    document.getElementById('repoStructure').style.display = 'block';
+                    document.getElementById('repoStructure').innerHTML = 'Loading...';
                     // Take length of API response data
-                    gitDirLength = (gitDir.length);
+                    gitDirLength = (gitDir.data.length);
+                    console.log('gitDirLength: ' + gitDirLength);
                     for (var i = 0; i < gitDirLength; i++) {
                         // IF the specific object is a directory with size 0 and a name of folder, call the API again
-                        if (gitDir[i].type == 'dir' && gitDir[i].size == 0 && gitDir[i].name == folder) {
+                        if (gitDir.data[i].type == 'dir' && gitDir.data[i].size == 0 && gitDir.data[i].name == folder) {
                             $.ajax({
-                                url : gitDir[i].git_url + "?access_token=" + oauthToken + oauthToken2,
+                                url : gitDir.data[i]._links.git + "?access_token=" + oauthToken + oauthToken2,
                                 dataType : 'jsonp',
                                 success : function(folderDir) {
                                     console.log('folderDir:');
@@ -142,6 +146,9 @@ function getGitRepos() {
             });
         });
     } else if (otherChecked && !isEmpty(other)) {
+        userName = $('#user').val();
+        repoName = $('#repo').val();
+        other = $('#other').val();
         jQuery(document).ready(function($) {
             $.ajax({
                 url : "https://api.github.com/repos/" + userName + "/" + repoName + "/contents" + "?access_token=" + oauthToken + oauthToken2,
