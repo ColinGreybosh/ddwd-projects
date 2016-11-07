@@ -1,0 +1,111 @@
+html {
+    size: 110%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.container {
+    display:-webkit-flex;
+    width: 100%;
+    margin: 0;
+
+}
+
+.nav {
+
+}
+
+.flexBox {
+
+}
+
+.navItem {
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.title h1 {
+    text-align: center;
+}
+
+@media all and (max-width: 650px) {
+    div.navHR {
+        margin-top: 2px;
+    }
+
+    div.navItem {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .navItem:visited {
+        background-color: #F74907;
+    }
+
+    .navItem:hover {
+        background-color: #f86d38;
+    }
+
+    .navItem:active {
+        background-color: #f4391a;
+    }
+
+    div.navItem p {
+        margin: 0.2rem 1rem 0.2rem 1rem;
+        max-width: 90%;
+    }
+
+    .pullLeft {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .pullRight {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 1px;
+    }
+
+    .pullLeft * {
+        display: block;
+        width: 100%;
+    }
+
+    .pullRight * {
+        display: block;
+        width: 100%;
+    }
+
+    .top {
+        margin-bottom: 2px;
+    }
+
+    .mid {
+        margin: 0.5px 0 1px 0;
+    }
+
+    .bot {
+        margin-top: 2px;
+    }
+
+    .left {
+        margin: 0;
+    }
+
+    .right {
+        margin: 0;
+    }
+
+        div.shown {
+        display: none;
+    }
+
+    div.hidden {
+        display: block;
+    }

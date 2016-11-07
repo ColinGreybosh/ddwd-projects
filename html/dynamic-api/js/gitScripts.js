@@ -7,15 +7,12 @@ function getGitRepos() {
     var userName = '';
     var repoName = '';
     var folder = '';
-    //var other = '';
     // Sets userName and repoName equal to the current value of the inputs
     userName = $('#user').val();
     repoName = $('#repo').val();
     folder = $('#folder').val();
-    //other = $('#other').val();
     var mainChecked = isChecked('mainToggle');
     var folderChecked = isChecked('folderToggle');
-    //var otherChecked = isChecked('otherToggle');
     // This if, else if, else statement checks if all required inputs are given
     if (mainChecked) {
         jQuery(document).ready(function($) {
@@ -110,41 +107,13 @@ function getGitRepos() {
                 }
             });
         });
-    } /*else if (otherChecked && !isEmpty(other)) {
-        userName = $('#user').val();
-        repoName = $('#repo').val();
-        other = $('#other').val();
-        dirStr = other.split('/');
-        dirStrLength = dirStr.length;
-        jQuery(document).ready(function($) {
-            $.ajax({
-                url : "https://api.github.com/repos/" + userName + "/" + repoName + "/contents" + oauth,
-                dataType : 'jsonp',
-                success : function(otherDir) {
-                    console.log('otherDir:');
-                    console.log(otherDir);
-                    // for (var i = 0; i < otherDir.length -1; i++) {
-                    //     $.ajax({
-                    //         url :
-                    //     });
-                    // }
-                    getUserInfo(userName, repoName, oauth);
-                },
-                error : function() {
-                    printError('Ajax just threw an error! Please try again.')
-                }
-            });
-        });
-    }*/ else if (!mainChecked && !folderChecked /*&& !otherChecked*/) {
+    } else if (!mainChecked && !folderChecked) {
         // If no radio buttons were checked, then output this error.
         printError("No structure option was chosen! Please try again.");
     } else if (folderChecked && isEmpty(folder)) {
         // If the folder radio button was checked but the text input is empty, output this error.
         printError("You checked the second option but did not input a folder name! Please try again.");
-    } /*else if (otherChecked && isEmpty(other)) {
-        // If the other radio button was checked but the text input is empty, output this error.
-        printError("You checked the third option but did not input a folder name! Please try again.");
-    }*/ else if (isEmpty(userName) || isEmpty(repoName)) {
+    } else if (isEmpty(userName) || isEmpty(repoName)) {
         // If the username or repository name is blank, output this error.
         printError('You did not enter a username or repository name! Please try again.');
     } else {
